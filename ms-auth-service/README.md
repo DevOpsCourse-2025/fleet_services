@@ -1,1 +1,0 @@
-# MS Auth Service
