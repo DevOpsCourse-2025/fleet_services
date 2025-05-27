@@ -41,6 +41,18 @@ public class VehicleController {
         this.decodingService = decodingService;
     }
 
+        @Put(value = "/update", consumes = MediaType.APPLICATION_JSON)
+    public VehicleDTO updateVehicle(@Body VehicleDTO vehicle) {
+        try {
+            return vehicleService.updateVehicle(vehicle);
+        } catch (BadRequestException e) {
+            throw new BadRequestException("Bad request while trying to update the vehicle: " + e.getMessage());
+        } catch (InternalServerException e) {
+            throw new InternalServerException("Internal server error while trying to update the vehicle: " + e.getMessage());
+        }
+    }
+
+
     @Post(value = "/create", consumes = MediaType.APPLICATION_JSON)
     public VehicleDTO createVehicle(@Body VehicleWithImageDTO vehicleWithImageDTO) {
         try {
