@@ -29,6 +29,18 @@ public class DriverController {
             throw new InternalServerException("Internal server error while trying to create the driver: " + e.getMessage());
         }
     }
+    
+    @Put("/update")
+    public DriverDTO updateDriver(@Body DriverDTO driverDTO) {
+        try {
+            return driverService.updateDriver(driverDTO);
+        } catch (BadRequestException e) {
+            throw new BadRequestException("Bad request while trying to update the driver: " + e.getMessage());
+        } catch (InternalServerException e) {
+            throw new InternalServerException("Internal server error while trying to update the driver: " + e.getMessage());
+        }
+    }
+
 
     @Get("/get/{curp}")
     public DriverDTO getDriverByCurp(@PathVariable String curp) {
