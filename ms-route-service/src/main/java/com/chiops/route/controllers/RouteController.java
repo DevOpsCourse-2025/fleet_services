@@ -36,7 +36,18 @@ public class RouteController {
             throw new InternalServerException("Error interno al crear la ruta: " + e.getMessage());
         }
     }
-
+    
+    @Put("/update")
+    public RouteDTO updateRoute(@Body RouteDTO route) {
+        try {
+            return routeService.updateRoute(route);
+        } catch (BadRequestException e) {
+            throw new BadRequestException("Error de solicitud al actualizar la ruta: " + e.getMessage());
+        } catch (InternalServerException e) {
+            throw new InternalServerException("Error interno al actualizar la ruta: " + e.getMessage());
+        }
+    }
+    
     @Get("/getall")
     public Iterable<RouteDTO> getAllRoutes() {
         try {
