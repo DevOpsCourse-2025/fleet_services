@@ -63,7 +63,16 @@ public class VehicleController {
         throw new InternalServerException("Internal server error while trying to create the vehicle: " + e.getMessage());
     }
 }
-
+        @Delete("/delete/{vin}")
+    public void deleteVehicle(@PathVariable String vin) {
+        try {
+            vehicleService.deleteVehicle(vin);
+        } catch (BadRequestException e) {
+            throw new BadRequestException("Bad request while trying to delete the vehicle: " + e.getMessage());
+        } catch (InternalServerException e) {
+            throw new InternalServerException("Internal server error while trying to delete the vehicle: " + e.getMessage());
+        }
+    }
 
 
     @Get(value = "/get/{vin}", consumes = MediaType.APPLICATION_JSON)
