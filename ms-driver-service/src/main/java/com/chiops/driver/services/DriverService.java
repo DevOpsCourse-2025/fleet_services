@@ -17,4 +17,6 @@ public interface DriverService {
     
     DriverDTO updateDriver(DriverDTO driverDTO);
 
+    DriverDTO  deleteDriver(String curp);
+
 }
