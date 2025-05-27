@@ -14,5 +14,7 @@ public interface DriverService {
     DriverDTO getDriverByCurp(String curp);
 
     DriverDTO createDriver(@Valid DriverDTO driverDTO);
+    
+    DriverDTO updateDriver(DriverDTO driverDTO);
 
 }
