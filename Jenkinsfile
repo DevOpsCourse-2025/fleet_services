@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         SERVICES_STRING = 'ms-administrator-service ms-api-gateway ms-auth-service ms-driver-service ms-invitation-service ms-route-service ms-vehicle-service'
-        DOCKER_HUB_USER = 'jcq12'
+        DOCKER_HUB_USER = 'fernandoga11'
         IMAGE_TAG = 'latest'
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials-id'
     }
